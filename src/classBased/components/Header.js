@@ -16,7 +16,7 @@ const Header = () => {
           marginBottom: "2rem",
           lineHeight: "1em",
           color: "#ececec",
-          textTransform: "lowercase",
+          textTransform: "capitalize",
           textAlign: "center",
         }}
       >
