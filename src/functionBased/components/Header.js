@@ -20,7 +20,7 @@ const Header = () => {
           textAlign: "center",
         }}
       >
-        todos
+        My Todos
       </h1>
     </header>
   )
