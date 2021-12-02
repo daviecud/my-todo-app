@@ -1,93 +1,53 @@
-import React, { useState, useEffect } from "react";
-import TodosList from "./TodosList";
-import Header from "./Header";
-import InputTodo from "./InputTodo";
-import {v4 as uuidv4} from "uuid";
+import {NavLink as Link, Route, Routes} from "react-router-dom";
+import About from "../pages/About"
+import NotMatch from "../pages/NotMatch"
+import MyTodos from "../pages/MyTodos";
+import AboutAuthor from "../pages/AboutAuthor";
+import AboutApp from "../pages/AboutApp";
+//import {v4 as uuidv4} from "uuid";
 
-const TodoContainer = () => {
-
-  const [todos, setTodos] = useState(getInitialTodos())
-
-       const handleChange = id => {
-        setTodos(prevState => 
-          prevState.map(todo => {
-                if (todo.id === id) {
-                  return {
-                    ...todo,
-                    completed: !todo.completed,
-                  }
-                }
-                return todo
-              })
-            )
-          }
-
-       const delTodo = id => {
-           setTodos([
-            ...todos.filter(todo => {
-              return todo.id !== id;
-            }),
-           ])
-       }
-
-       const addTodoItem = title => {
-        const newTodo = {
-          id: uuidv4(),
-          title: title,
-          completed: false
-        }
-        setTodos([...todos, newTodo])
-      }
-
-      const setUpdate = (updatedTitle, id) => {
-        setTodos(
-          todos.map(todo => {
-            if (todo.id === id) {
-              todo.title = updatedTitle
-            }
-            return todo
-          })
-        )
-      }
-
-      function getInitialTodos() {
-        //get stored items
-        const temp = localStorage.getItem("todos")
-        const savedTodos = JSON.parse(temp)
-        return savedTodos || []
-      }
-
-      useEffect(() => {
-        //store todo items
-        const temp = JSON.stringify(todos)
-        localStorage.setItem("todos", temp)
-      }, [todos])
-
-      // useEffect(() => {
-      //   console.log("test run")
-
-      //   //get local stored items
-      //   const temp = localStorage.getItem("todos")
-      //   const loadedTodos = JSON.parse(temp)
-
-      //   if (loadedTodos) {
-      //     setTodos(loadedTodos)
-      //   }
-      // }, [])
+const TodoContainer = (props) => {
        
-        return (
-          <div className="container">
-            <div className="inner">
-              <Header />
-              <InputTodo addTodoProps={addTodoItem} />
-              <TodosList 
-                todos={todos} 
-                handleChangeProps={handleChange}
-                deleteTodoProps={delTodo}
-                setUpdate={setUpdate} 
-              />
-            </div>
-          </div>
-        )
+      return (
+        <><div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/" activeclassname="active">Home</Link>
+              </li>
+              <li>
+                <Link to="About" activeclassname="active">About</Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div>
+            
+            <Routes>
+              <Route path="/" element={<MyTodos />}></Route>
+              <Route path="/about" element={<About />} component={About}></Route>
+              <Route path="/about/*" element={<About />} component={About}></Route>
+              <Route path="/about/Author" element={<AboutAuthor />} component={AboutAuthor}></Route>
+              <Route path="/about/AboutApp" element={<AboutApp />} component={AboutApp}></Route>
+              <Route path="*" element={<NotMatch />}></Route>
+            </Routes>
+
+
+          </div></>
+      )
 }
+
+// export const Home = () => {
+//   return <div>You are at home page</div>
+// }
+
+// export const About = () => {
+//   return <div>You are at About page</div>
+// }
+
+// export const NotMatch = () => {
+//   return <div>YThis is a 404 page</div>
+// }
+
+
 export default TodoContainer

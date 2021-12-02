@@ -74,3 +74,100 @@
     color: red;
     font-size: "16px";
   }
+
+  nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  nav a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 1rem;
+  }
+
+  nav a.active {
+    background-color: #eee;
+  }
+
+  .aboutContainer {
+    background-color: white;
+  }
+
+ 
+
+  .aboutContainer button {
+    height: 45px;
+    width: 60px;
+    color: orange;
+    font-size: 16px;
+    
+  }
+
+  .aboutHeading h2 {
+    display: flex;
+    justify-content: center;
+    text-shadow: #5b5b5b;
+    color: aqua;
+    
+  }
+
+  .aboutAppBody {
+    background: white;
+    flex: 1;
+    
+  }
+
+  .aboutAppBody p {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .aboutAppBody button {
+    margin-left: 300px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(102, 81, 81);
+    color: white;
+    font-size: larger;
+    cursor: pointer;
+    height: 45px;
+    width: 60%;
+    
+  }
+
+  
+
+  .aboutAppBody h2 {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: flex;
+    padding: 1rem 0;
+    justify-content: center;
+    color: blue;
+  }
+
+  ul.titles {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    padding: 0.5em;
+    
+    text-decoration-line: none;
+  }
+
+  .titles li {
+    padding: 0.5rem 0.5rem;
+    text-decoration: wavy;
+    text-decoration-line: none;
+  }
+
+  .appBody body {
+    background-color: aquamarine;
+  }
+
+ 

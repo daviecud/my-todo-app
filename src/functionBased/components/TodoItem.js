@@ -3,7 +3,7 @@ import styles from "./TodoItem.module.css"
 import { FaTrash } from "react-icons/fa";
 
 const TodoItem = props => {
-
+  
   const [editing, setEditing] = useState(false)
   
   const handleEditing = () => {
