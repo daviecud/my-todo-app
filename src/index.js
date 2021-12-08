@@ -8,12 +8,13 @@ import TodoContainer from "./functionBased/components/TodoContainer"
 import "./functionBased/App.css"
 //import "./functionBased/AboutApp.css"
 import "./functionBased/components/TodoItem.module.css"
+import MyTodos from "./functionBased/pages/MyTodos";
 
 
 ReactDOM.render(
     <React.StrictMode>
         <Router>
-            <TodoContainer /> 
+            <MyTodos /> 
         </Router>
     </React.StrictMode>,
 document.getElementById("root")
